@@ -5,32 +5,7 @@
     <title>Marcos Mantovani</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
-    <style>
-        h1,p{
-            text-align: center;
-        }
-        h2{
-            font-family: 'Nerko One';
-            font-size: 35px;
-        }
-        h3{
-            font-size: 20px;
-        }
-        li{
-            font-weight: bold;
-        }
-        
-        body{
-            background-color: #70C1B3;
-        }
-        #infos1{
-            font-style: italic;
-            font-weight: bold;
-        }
-        .text-to-center{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1><em><strong>Portifólio Online</strong></em></h1>
@@ -44,23 +19,19 @@
             <a href="#habilidades"><li>Habilidades</li></a>
         </ul>       
       
-
-        <img src="Imagens/Profile.png" width="300px" height="300px" alt="Foto de Perfil Marcos Mantovani" id="fotoPerfil">
-        <h3 class="text-to-center">Marcos Mantovani</h3>
-        <p>Sou uma pessoa carismática porém reservada, gosto de poder mostrar meu potencial atravéz de excelência no que faço.</p>
-            <br>
-            <p id="infos1">Nacionalidade:Brasileiro.
-                <br>
-                Cidade/Estado: São Paulo/Sp</p>
-        </p>
-        <br>
-        <br>
+        <div class="quemSou">
+            <div class="fotoPerfil">
+                <img src="Imagens/Profile.png" width="300px" height="300px" alt="Foto de Perfil Marcos Mantovani" id="fotoPerfil">
+            </div>            
+            <h3 class="text-to-center">Marcos Mantovani</h3>
+            <p>Sou uma pessoa carismática porém reservada, gosto de poder mostrar meu potencial atravéz de excelência no que faço.<br>Nacionalidade:Brasileiro.<br>Cidade/Estado: São Paulo/Sp</p>                      
+        </div>               
         <ul>            
             <a class="text-to-center" href="#habilidades"><li>Habilidades</li></a>
         </ul>     
-        <h2 id="habilidades" class="text-to-center">Habilidades:</h2>
+        <h2>Habilidades:</h2>
         <ul class="text-to-center">
-            <li><strong>Inglês nível Avançado*</li></strong>
+            <li><strong>Inglês nível Avançado</li></strong>
             <li>Conhecimento intermediário em Linguagem de programação Java</li>
             <li>sólidos conhecimentos em instalação/manutenção de Hardware</li>
             <li>conhecimento básico em Linux e uso de terminal de comando bash</li>

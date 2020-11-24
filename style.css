@@ -1,0 +1,17 @@
+        * {
+            margin: 0px;
+        }
+           .quemSou {
+               background-color: pink;
+               text-align: center; 
+               padding: 10px;              
+           } 
+           .fotoPerfil {
+               background-color: red;
+               padding: auto;
+           }    
+        body {
+            background-color: #70C1B3;
+        }
+        
+        
