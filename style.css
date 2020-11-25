@@ -84,8 +84,8 @@
        .linkBlog {
            margin: auto;
            position: absolute;
-           top: 47em;
-           left: 25em;           
+           top: 40em;
+           left: 70em;           
        }
        #habilidades {
            font-size: 18px;
@@ -98,7 +98,7 @@
        #footPrint {
            color: wheat;
            font-size: 15px;
-           margin: auto;
+           margin-left: 10px;
        }
        body{
            background-color: rgb(58, 58, 179);
