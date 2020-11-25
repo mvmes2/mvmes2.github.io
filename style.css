@@ -1,17 +1,107 @@
         * {
             margin: 0px;
         }
-           .quemSou {
-               background-color: pink;
-               text-align: center; 
-               padding: 10px;              
-           } 
-           .fotoPerfil {
-               background-color: red;
-               padding: auto;
-           }    
-        body {
-            background-color: #70C1B3;
-        }
+       .cabecalho {
+           background-color: rgb(197, 151, 66);
+           padding: 20px;
+           text-align: center;
+       }
+       .title-adjust {
+           font-size: 50px;
+           font-family: 'Nerko One', cursive;
+           padding: 10px;
+       }
+       p {
+           font-size: 19px;
+           font-family: 'Texturina', serif;
+       }
+       .list {   
+           padding: 15px;              
+           width: 10%;
+           margin: auto;
+       }
+       .listColor {
+           color: orange;
+           text-decoration: underline;
+       }
+       .quemSouEu {
+           margin: 10px;
+           border: solid 3px;
+           padding: 15px;
+       }
+       #marcosMantovani {
+          font-family: 'Nerko One', cursive;
+          font-size: 30px;
+       }
+       .descricao {
+           font-weight: 550;
+           font-style: italic;          
+           width: 60%;
+           margin: auto;
+           position: absolute;
+           left: 17em;
+           top: 18.8em;
+           padding: 10px;
+           border: solid 3px rgb(241, 235, 235);
+       }
+       #fontDesc {
+        font-family: 'Texturina', serif;
+       }
+       .imagem {
+           border-radius: 100px;
+           border: solid 5px rgb(238, 230, 230);
+       }
+       .infoGeral {           
+           margin: 10px;
+           border: solid 3px;
+           padding: 15px;
+           
+       }
+       .infoGeralWraper {
+           border: solid 3px white;           
+           margin: 20px;
+           padding: 10px;
+           display: inline-block;
+           position: relative;
+           left: 10em;
+          
+       }
+       .habilidades{
+            margin: 10px;
+            border: solid 3px;
+            padding: 15px;
+       }
+       .titleMargin {
+           padding: 15px;
+       }
+       .habilidadesBorder {
+            width: 50%;
+            position: relative;
+            left: 20em;
+            padding: 10px;
+            border: solid 3px rgb(241, 235, 235);
+       }
+       .linkBlog {
+           margin: auto;
+           position: absolute;
+           top: 47em;
+           left: 25em;           
+       }
+       #habilidades {
+           font-size: 18px;
+           padding: 20;
+       }
+       #rodaPe {
+           background-color: black;
+           height: 30px;
+       }
+       #footPrint {
+           color: wheat;
+           font-size: 15px;
+           margin: auto;
+       }
+       body{
+           background-color: rgb(58, 58, 179);
+       }
         
         
