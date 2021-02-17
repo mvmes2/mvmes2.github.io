@@ -1,87 +1,128 @@
-let inputBox = document.getElementById('texto-tarefa');
-let button = document.querySelector('#criar-tarefa');
-let listItens = document.querySelectorAll('li');
-let capturedText = '';
-let orderCount = 0;
+let createElementLi = document.createElement('li');
+let listaOl = document.querySelector('#lista-tarefas');
+const createTaskButton = document.querySelector('#criar-tarefa');
+const eraseAllButtom = document.querySelector('#apaga-tudo');
+const eraseCompletedButtom = document.querySelector('#remover-finalizados');
+const buttomUp = document.querySelector('#mover-cima');
+const buttomDown = document.querySelector('#mover-baixo');
+const buttomRemoveSelected = document.querySelector('#remover-selecionado');
+const buttomSave = document.querySelector('#salvar-tarefas');
 
-function captureInputAndCreate() {
-    button.addEventListener('click', function() {
-        let captureText = document.getElementById('texto-tarefa').value;
-        let list = document.querySelector('#lista-tarefas');
-        if (capturedText == captureText && capturedText != '') {
-            alert('Você já tem esta tarefa na lista.');
+let text = document.querySelector('#texto-tarefa');
+
+
+const createTask = () =>{
+    createTaskButton.addEventListener('click',  function () { 
+        let createElementLi = document.createElement('li');       
+        AddTaskStyle(createElementLi);
+        listaOl.appendChild(createElementLi); 
+        text.value= '';       
+    })
+}
+
+const AddTaskStyle = (createElementLi) => { 
+    createElementLi.innerText = text.value;   
+    createElementLi.classList.add('task');      
+}
+
+const addSelectTask = () => { 
+    let listaOl = document.querySelector('#lista-tarefas');   
+    listaOl.addEventListener('click', function (event) {
+    let selectedList = document.querySelector('.selected');
+        if(selectedList && event.target.classList.contains('task')) {
+            selectedList.classList.remove('selected');
+        }
+        if(event.target.classList.contains('task')) {
+            event.target.classList.add('selected');
+        }        
+    })
+}
+
+const addCompletedTask = () => {    
+    listaOl.addEventListener('dblclick', function (event) {    
+        if (event.target.classList.contains('completed')){
+            event.target.classList.remove('completed')            
         } else {
-            if (captureText != '' && captureText != 'escreva uma tarefa...' && capturedText != captureText) {
-                capturedText = captureText;
-                let create = document.createElement('li');
-                let createBox = document.createElement('div');
-                createBox.style.width = '20px';
-                createBox.style.height = '20px';
-                createBox.style.display = 'inline-block';
-                create.innerText = capturedText;
-                orderCount += 1;
-                create.style.order = orderCount;                
-                create.style.alignItems = 'center';
-                create.classList.add('task');
-                list.appendChild(create);
-                create.appendChild(createBox);
-                document.getElementById('texto-tarefa').value = '';
-            } else {
-                alert('Digite alguma tarfa primeiro');
+            event.target.classList.add('completed');
+        }        
+    })
+}
+
+const clearList = () => {
+    eraseAllButtom.addEventListener('click', function () {
+        listaOl.innerHTML = '';
+    })
+    
+}
+
+const clearCompletedTasks = () => {
+    eraseCompletedButtom.addEventListener('click', function () {
+        let completeds = document.querySelectorAll('li.completed');
+        completeds.forEach((key) => {
+            listaOl.removeChild(key);
+        })
+    })
+}
+
+const moveTaskUp = () => {
+    buttomUp.addEventListener('click', function () {
+        let taskList = document.querySelectorAll('li');
+        for (let index = 0; index < taskList.length; index +=1) {
+            let pos = taskList[index];
+            if(pos.classList.contains('selected') && pos.previousElementSibling !== null){
+                listaOl.insertBefore(pos, taskList[index - 1]);
             }
         }
     })
 }
 
-function eraseInputBox() {
-    let erase = document.getElementById('texto-tarefa');
-    erase.addEventListener('click', function() {
-        erase.value = '';
-    })
-}
-
-function changeListInputColorSelectUnselect() {
-    let list = document.querySelector('#lista-tarefas');
-    list.addEventListener('click', function(event) {
-        let selected = document.querySelector('.selected');
-        if (selected && event.target.classList.contains('task')) {
-            selected.classList.remove('selected');
-        }
-        if (event.target.classList.contains('task')) {
-            event.target.classList.add('selected');
-        }
-
-    })
-}
-
-function completedTask() {
-    let list = document.querySelector('#lista-tarefas');
-    list.addEventListener('dblclick', function(event) {
-        let completed = document.querySelector('.completed');
-        if (completed && event.target.classList.contains('completed')) {
-            event.target.classList.remove('completed');
-            event.target.firstElementChild.classList.remove('checkedBox')
-        } 
-        else  {
-            event.target.classList.add('completed');
-            event.target.firstElementChild.classList.add('checkedBox')
-
+const moveTaskDown = () => {
+    buttomDown.addEventListener('click', function () {
+        let taskList = document.querySelectorAll('li');
+        for (let index = 0; index < taskList.length; index +=1) {
+            let pos = taskList[index];
+            if(pos.classList.contains('selected') && pos.nextElementSibling !== null){
+                listaOl.insertBefore(taskList[index + 1], pos);
+            }
         }
     })
 }
 
-function eraseButtom () {
-    let eraseButtom = document.getElementById('apaga-tudo');    
-    let list = document.querySelector('#lista-tarefas');    
-    eraseButtom.addEventListener('click', function(event) {        
-        list.innerHTML = '';           
+const clearSelectedTask = () => {
+    buttomRemoveSelected.addEventListener('click', function () {
+        let selected = document.querySelectorAll('li.selected');
+        selected.forEach((key) => {
+            listaOl.removeChild(key);
+        }) 
     })
 }
 
-window.onload = function() {
-    captureInputAndCreate();
-    eraseInputBox();
-    changeListInputColorSelectUnselect();
-    completedTask();
-    eraseButtom ();
+const saveTasks = () => {
+    buttomSave.addEventListener('click', function() {
+        localStorageSave();
+        
+    })
+}
+
+const localStorageSave = () => {
+    let tasks = document.getElementById('lista-tarefas').innerHTML;
+    localStorage.list = tasks;
+    window.alert('Lista Salva Com sucesso!');
+}
+const loadTasks = () => {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+}
+
+window.onload = () => {
+    createTask();
+    addSelectTask();
+    addCompletedTask();
+    clearList();  
+    clearCompletedTasks();  
+    moveTaskUp();
+    moveTaskDown();
+    clearSelectedTask();
+    saveTasks();
+    loadTasks();
+    
 }
