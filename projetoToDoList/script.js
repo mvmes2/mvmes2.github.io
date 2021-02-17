@@ -123,8 +123,8 @@ window.onload = () => {
     clearCompletedTasks();  
     moveTaskUp();
     moveTaskDown();
-    clearSelectedTask();
-    saveTasks();
+    clearSelectedTask();    
     loadTasks();
+    saveTasks();
     
 }
