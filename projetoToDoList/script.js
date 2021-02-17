@@ -110,7 +110,9 @@ const localStorageSave = () => {
     window.alert('Lista Salva Com sucesso!');
 }
 const loadTasks = () => {
-    document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+    if(typeof Storage !== null) {
+        document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+    }
 }
 
 window.onload = () => {
