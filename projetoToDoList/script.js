@@ -110,7 +110,7 @@ const localStorageSave = () => {
     window.alert('Lista Salva Com sucesso!');
 }
 const loadTasks = () => {
-    if(typeof Storage !== null) {
+    if(localStorage.list) {
         document.getElementById('lista-tarefas').innerHTML = localStorage.list;
     }
 }
