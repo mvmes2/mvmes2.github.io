@@ -7,7 +7,6 @@ const buttomUp = document.querySelector('#mover-cima');
 const buttomDown = document.querySelector('#mover-baixo');
 const buttomRemoveSelected = document.querySelector('#remover-selecionado');
 const buttomSave = document.querySelector('#salvar-tarefas');
-
 let text = document.querySelector('#texto-tarefa');
 
 
@@ -125,6 +124,5 @@ window.onload = () => {
     moveTaskDown();
     clearSelectedTask();    
     loadTasks();
-    saveTasks();
-    
+    saveTasks();    
 }
