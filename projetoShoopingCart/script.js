@@ -5,18 +5,12 @@ const LOADER_TEXT = document.querySelector('.loading');
 
 function displayLoading() {
   LOADER_CIRCLE.classList.add('display');
-  LOADER_TEXT.classList.add('display');
-  setTimeout(() => {
-    LOADER_CIRCLE.classList.remove('display');
-    LOADER_TEXT.classList.remove('display');
-  }, 1500);
+  LOADER_TEXT.classList.add('display');  
 }
 
-function hideLoading() {
-  setTimeout(() => {
+function hideLoading() {  
     LOADER_CIRCLE.classList.remove('display');
-    LOADER_TEXT.classList.remove('display');
-  }, 5000);
+    LOADER_TEXT.classList.remove('display');  
 }
 
 function createProductImageElement(imageSource) {
@@ -106,15 +100,14 @@ async function getItensResults(term) {
   const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${term}`;
   const response = await fetch(endpoint);
   const object = await response.json();
-  const { results } = object;
+  const { results } = object;  
   const intemsElement = document.querySelector('.items');
-
   results.forEach((result) => {
     const { id: sku, title: name, thumbnail: image } = result;
     const element = createProductItemElement({ sku, name, image });
-    element.addEventListener('click', itemToCart);    
+    element.addEventListener('click', itemToCart);       
     intemsElement.appendChild(element);
-    hideLoading();
+    hideLoading();    
   });
   } 
   
