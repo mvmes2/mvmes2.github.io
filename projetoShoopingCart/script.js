@@ -100,14 +100,14 @@ async function getItensResults(term) {
   const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${term}`;
   const response = await fetch(endpoint);
   const object = await response.json();
-  const { results } = object;  
+  const { results } = object;
   const intemsElement = document.querySelector('.items');
+  hideLoading();
   results.forEach((result) => {
     const { id: sku, title: name, thumbnail: image } = result;
     const element = createProductItemElement({ sku, name, image });
-    element.addEventListener('click', itemToCart);       
+    element.addEventListener('click', itemToCart);
     intemsElement.appendChild(element);
-    hideLoading();    
   });
   } 
   
