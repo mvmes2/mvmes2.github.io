@@ -82,6 +82,8 @@
             border: solid 3px rgb(241, 235, 235);
        }
        .linkBlog {
+           display: flex;
+           flex-direction: row;
            margin: auto;
            position: absolute;
            top: 40em;
@@ -102,6 +104,28 @@
        }
        body{
            background-color: rgb(58, 58, 179);
+       }
+
+       .main-Btn {
+        font-size: 15px;
+        border-radius: 10px;
+       }
+
+       .main-Btn:hover {
+           cursor: pointer;
+           background-color: aquamarine;
+           border: 2px solid black;
+       }
+
+       li {
+           padding: 10px;
+       }
+
+       .HomeBtn {
+          margin-left: 70vh;
+          margin-top: 2vh;
+          margin-bottom: 2vh;
+          padding: 5px;
        }
         
         
